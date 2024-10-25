@@ -1,0 +1,29 @@
+FROM python:3.12-slim
+
+RUN apt-get update \
+    && apt-get install -y \
+    build-essential cmake \
+    git \
+    vim nano \
+    wget curl \
+    zip unzip \
+    htop net-tools iputils-ping screenfetch \
+    libgl1 libglib2.0-0 libpython3-dev libusb-1.0-0 libsm6 \
+    fonts-nanum* \
+    openssh-server \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set root password and configure SSH for root login
+RUN echo "root:root" | chpasswd \
+    && sed -i 's/^#\?PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config \
+    && sed -i 's/^#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config \
+    && mkdir /var/run/sshd
+
+# Set up working directory
+WORKDIR /ws
+
+# Expose SSH port
+EXPOSE 22
+
+# Start SSH service
+CMD ["/usr/sbin/sshd", "-D"]
