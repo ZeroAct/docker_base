@@ -1,8 +1,21 @@
 # docker_base
 docker base images for dev
 
-- [docker hub](https://hub.docker.com/repository/docker/zeroact/zpython/general)
+- [python 3.12 base image](https://hub.docker.com/repository/docker/zeroact/zpython/general)
+- [ai dev](https://hub.docker.com/repository/docker/zeroact/ai_dev/general)
 
+## Release
+- 24.10.31
+  - ipython
+  - pytorch
+  - tools for [unstructured](https://github.com/Unstructured-IO/unstructured)(poputil, tessoract, etc...)
+  - usage
+    ```shell
+    docker pull zeroact/ai_dev:3.12
+    docker run -it -p 2222:22 -d --name ai_dev zeroact/ai_dev:3.12 /usr/sbin/sshd -D
+    ssh -p 2222 root@localhost
+    # root
+    ```
 
 ## It has installed
 - basic build tools
