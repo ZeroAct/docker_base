@@ -21,7 +21,8 @@ docker base images for dev
       ``
 
 
-<s>- 24.10.31 
+<s>
+- 24.10.31 
   - ai_dev
     - ipython
     - pytorch
@@ -32,7 +33,8 @@ docker base images for dev
       docker run -it -p 2222:22 -d --name ai_dev zeroact/ai_dev:3.12 /usr/sbin/sshd -D
       ssh -p 2222 root@localhost
       # root
-      ```</s>
+      ```
+</s>
 
 ## It has installed
 - basic build tools
