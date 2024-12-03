@@ -5,6 +5,20 @@ docker base images for dev
 - [ai dev](https://hub.docker.com/repository/docker/zeroact/ai_dev/general)
 
 ## Release
+- 24.12.03
+  - zeroact/ai_dev:3.10-0.0.1
+    - ubuntu packages
+      - jdk
+    - python packages
+      - konlpy
+      - ipykernel
+  - exaple
+    ```python
+    from konlpy.tag import Okt
+    Okt().morphs("안녕 나는 희재야! 너는 누구니")
+    # ['안녕', '나', '는', '희재', '야', '!', '너', '는', '누구', '니']
+    ```
+
 - 24.11.01
   - <p style="color: red; font-weight: bold">`zeroact/ai_dev:3.12` has been deprecated because of its compatibility</p>
   - zeroact/zpython:3.10 (same with 3.12 except for the version)
@@ -18,11 +32,10 @@ docker base images for dev
       docker run -it -p 2222:22 -d --name ai_dev zeroact/ai_dev:3.10 /usr/sbin/sshd -D
       ssh -p 2222 root@localhost
       # root
-      ``
+      ```
 
 
-<s>
-- 24.10.31 
+<s>- 24.10.31 
   - ai_dev
     - ipython
     - pytorch
@@ -33,8 +46,7 @@ docker base images for dev
       docker run -it -p 2222:22 -d --name ai_dev zeroact/ai_dev:3.12 /usr/sbin/sshd -D
       ssh -p 2222 root@localhost
       # root
-      ```
-</s>
+      ```</s>
 
 ## It has installed
 - basic build tools
